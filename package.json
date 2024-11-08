@@ -1,5 +1,5 @@
 {
-  "name": "@dynamic-mockups/iframe-embed-tools",
+  "name": "@dynamic-mockups/mockup-editor-sdk",
   "version": "1.0.1",
   "description": "Tools for setting up Dynamic Mockups embedded editor.",
   "type": "module",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dynamic-Mockups/iframe-embed-tools.git"
+    "url": "git+https://github.com/Dynamic-Mockups/mockup-editor-sdk.git"
   },
   "author": "DESIGN COPILOT LTD",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Dynamic-Mockups/iframe-embed-tools/issues"
+    "url": "https://github.com/Dynamic-Mockups/mockup-editor-sdk/issues"
   },
-  "homepage": "https://github.com/Dynamic-Mockups/iframe-embed-tools#readme"
+  "homepage": "https://github.com/Dynamic-Mockups/mockup-editor-sdk#readme"
 }

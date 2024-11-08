@@ -1,4 +1,4 @@
-# iFrame tools for Mockups Editor by Dynamic Mockups
+# Mockups Editor SDK by Dynamic Mockups
 
 This package provides additional functions and utilities to seamlessly integrate iFrame with the Editor application developed by the Dynamic Mockups team. It simplifies embedding the Editor iFrame into your project, enhancing functionality and providing smooth interactions between your site and the Editor platform.
 
@@ -14,11 +14,11 @@ This package provides additional functions and utilities to seamlessly integrate
 To install this package, run:
 
 ```bash
-npm i @dynamic-mockups/iframe-embed-tools
+npm i @dynamic-mockups/mockup-editor-sdk
 ```
 
 For wordpress use:
 
 ```bash
-https://cdn.jsdelivr.net/npm/@dynamic-mockups/iframe-embed-tools@latest/index.js
+https://cdn.jsdelivr.net/npm/@dynamic-mockups/mockup-editor-sdk@latest/index.js
 ```
