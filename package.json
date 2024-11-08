@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-mockups/mockup-editor-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "SDK for setting up Dynamic Mockups embedded editor.",
   "type": "module",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Dynamic-Mockups/mockup-editor-sdk.git"
   },
   "author": "DESIGN COPILOT LTD",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Dynamic-Mockups/mockup-editor-sdk/issues"
   },
