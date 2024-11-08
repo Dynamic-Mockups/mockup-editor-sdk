@@ -1,0 +1,20 @@
+{
+  "name": "@dynamic-mockups/iframe-embed-tools",
+  "version": "1.0.1",
+  "description": "Tools for setting up Dynamic Mockups embedded editor.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dynamic-Mockups/iframe-embed-tools.git"
+  },
+  "author": "DESIGN COPILOT LTD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dynamic-Mockups/iframe-embed-tools/issues"
+  },
+  "homepage": "https://github.com/Dynamic-Mockups/iframe-embed-tools#readme"
+}
