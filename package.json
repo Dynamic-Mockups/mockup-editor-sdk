@@ -1,7 +1,7 @@
 {
   "name": "@dynamic-mockups/mockup-editor-sdk",
-  "version": "1.0.1",
-  "description": "Tools for setting up Dynamic Mockups embedded editor.",
+  "version": "1.0.2",
+  "description": "SDK for setting up Dynamic Mockups embedded editor.",
   "type": "module",
   "main": "index.js",
   "scripts": {
