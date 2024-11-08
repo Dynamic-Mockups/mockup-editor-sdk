@@ -47,7 +47,7 @@ function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
         .catch((error) => console.error("Error downloading the image:", error));
     });
   };
-   const iframe = document.getElementById(iframeId);
+  const iframe = document.getElementById(iframeId);
 
   if (!iframe) {
     console.error(`Iframe with ID '${iframeId}' not found.`);
@@ -56,7 +56,7 @@ function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
 
   const sendMessage = () => {
     if (iframe.contentWindow) {
-       iframe.contentWindow.postMessage(
+      iframe.contentWindow.postMessage(
         data,
         "https://embed.dynamicmockups.com"
       );
@@ -78,4 +78,4 @@ function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
   });
 }
 
-export default initDynamicMockupsIframe;
+window.initDynamicMockupsIframe = initDynamicMockupsIframe;
