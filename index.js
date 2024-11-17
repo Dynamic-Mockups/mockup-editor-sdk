@@ -1,10 +1,14 @@
 /**
  * @typedef {Object} IframeData
- * @property {boolean} [haveColorPicker] - Whether to include a color picker.
- * @property {boolean} [haveColorPresets] - Whether to include color presets.
- * @property {boolean} [haveDesignFileUpload] - Whether to allow design file uploads.
+ * @property {boolean} [showColorPicker] - Whether to include a color picker.
+ * @property {boolean} [showColorPresets] - Whether to include color presets.
+ * @property {boolean} [enableDesignFileUpload] - Whether to allow design file uploads.
  * @property {boolean} [oneColorPerSmartObject] - Whether to use one color per smart object.
+ * @property {Object} [mockupExportOptions] - Options for exporting mockups.
+ * @property {string} mockupExportOptions.image_format - Format of the exported image (e.g., "webp", "png", "jpg").
+ * @property {number} mockupExportOptions.image_size - Size of the exported image.
  * @property {string} [designUrl] - URL of the design.
+ * @property {string} [customFields] - Custom user data. Will be returned alongside callback response.
  * @property {string} xWebsiteKey - A website key for authorization.
  */
 
@@ -72,7 +76,10 @@ function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
       if (mode === "download") {
         downloadMockups(event.data.mockupsExport);
       } else if (mode === "custom" && typeof callback === "function") {
-        callback(event.data.mockupsExport);
+        callback({
+          mockupsExport: event.data.mockupsExport,
+          customFields: event.data?.customFields || undefined,
+        });
       }
     }
   });
