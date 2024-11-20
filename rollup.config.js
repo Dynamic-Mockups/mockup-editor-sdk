@@ -7,7 +7,7 @@ export default {
   output: {
     file: "dist/index.js",
     format: "iife",
-    name: "initDynamicMockupsIframe",
+    name: "DynamicMockups",
   },
   plugins: [resolve(), commonjs(), terser()],
 };
