@@ -14,11 +14,11 @@ This package provides additional functions and utilities to seamlessly integrate
 To install this package, run:
 
 ```bash
-npm i @dynamic-mockups/mockup-editor-sdk
+npm i @dynamic-mockups/mockup-editor-sdk@latest
 ```
 
 For wordpress use:
 
 ```bash
-https://cdn.jsdelivr.net/npm/@dynamic-mockups/mockup-editor-sdk@latest/index.js
+https://cdn.jsdelivr.net/npm/@dynamic-mockups/mockup-editor-sdk@latest/dist/index.js
 ```
