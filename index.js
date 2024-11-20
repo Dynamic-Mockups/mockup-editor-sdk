@@ -61,14 +61,13 @@ export const initDynamicMockupsIframe = ({
   if (!iframe) {
     console.error(`Iframe with ID '${iframeId}' not found.`);
     return;
+  } else {
+    iframe.src = iframe.src;
   }
 
   const sendMessage = () => {
     if (iframe.contentWindow) {
-      iframe.contentWindow.postMessage(
-        data,
-        "https://embed.dynamicmockups.com"
-      );
+      iframe.contentWindow.postMessage(data, iframe.src);
     }
   };
 
