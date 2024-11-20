@@ -89,5 +89,3 @@ export const initDynamicMockupsIframe = ({
     }
   });
 };
-
-window.initDynamicMockupsIframe = initDynamicMockupsIframe;
