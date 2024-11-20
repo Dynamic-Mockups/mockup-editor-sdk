@@ -24,7 +24,12 @@
  * Initializes iframe communication with the specified parameters.
  * @param {InitDynamicMockupsIframeParams} params - The parameters for initializing the iframe.
  */
-function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
+export const initDynamicMockupsIframe = ({
+  iframeId,
+  data,
+  mode,
+  callback,
+}) => {
   /**
    * Downloads mockups based on the provided mockup data.
    * @param {Array} mockups - Array of mockup data.
@@ -83,6 +88,6 @@ function initDynamicMockupsIframe({ iframeId, data, mode, callback }) {
       }
     }
   });
-}
+};
 
 window.initDynamicMockupsIframe = initDynamicMockupsIframe;
