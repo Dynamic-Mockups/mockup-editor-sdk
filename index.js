@@ -83,6 +83,7 @@ export const initDynamicMockupsIframe = ({
         callback({
           mockupsExport: event.data.mockupsExport,
           customFields: event.data?.customFields || undefined,
+          artwork: event.data?.artwork || undefined,
         });
       }
     }
