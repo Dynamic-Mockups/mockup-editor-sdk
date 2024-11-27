@@ -80,11 +80,7 @@ export const initDynamicMockupsIframe = ({
       if (mode === "download") {
         downloadMockups(event.data.mockupsExport);
       } else if (mode === "custom" && typeof callback === "function") {
-        callback({
-          mockupsExport: event.data.mockupsExport,
-          customFields: event.data?.customFields || undefined,
-          artwork: event.data?.artwork || undefined,
-        });
+        callback(event.data);
       }
     }
   });
