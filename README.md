@@ -2,6 +2,8 @@
 
 This package provides additional functions and utilities to seamlessly integrate iFrame with the Editor application developed by the Dynamic Mockups team. It simplifies embedding the Editor iFrame into your project, enhancing functionality and providing smooth interactions between your site and the Editor platform.
 
+https://dynamicmockups.com
+
 ## Features
 
 - **Enhanced iFrame Integration**: Easily embed the Editor application into your website using iFrame.
@@ -21,7 +23,7 @@ To install this package, run:
 npm i @dynamic-mockups/mockup-editor-sdk@latest
 ```
 
-For wordpress use:
+Use via CDN:
 
 ```bash
 https://cdn.jsdelivr.net/npm/@dynamic-mockups/mockup-editor-sdk@latest/dist/index.js

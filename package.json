@@ -1,9 +1,10 @@
 {
   "name": "@dynamic-mockups/mockup-editor-sdk",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "SDK for setting up Dynamic Mockups embedded editor.",
   "type": "module",
   "main": "index.js",
+  "homepage": "https://dynamicmockups.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/Dynamic-Mockups/mockup-editor-sdk/issues"
   },
-  "homepage": "https://github.com/Dynamic-Mockups/mockup-editor-sdk#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
