@@ -6,7 +6,7 @@ export default {
   input: "index.js",
   output: {
     file: "dist/index.js",
-    format: "iife",
+    format: "esm",
     name: "DynamicMockups",
   },
   plugins: [resolve(), commonjs(), terser()],
