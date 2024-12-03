@@ -4,6 +4,7 @@
   "description": "SDK for setting up Dynamic Mockups embedded editor.",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "homepage": "https://dynamicmockups.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
