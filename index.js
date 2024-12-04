@@ -67,7 +67,10 @@ export const initDynamicMockupsIframe = ({
 
   const sendMessage = () => {
     if (iframe.contentWindow) {
-      iframe.contentWindow.postMessage(data, iframe.src);
+      iframe.contentWindow.postMessage(
+        { ...data, locationHost: window.location.host },
+        iframe.src
+      );
     }
   };
 
