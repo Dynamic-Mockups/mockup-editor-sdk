@@ -3,6 +3,10 @@
  */
 export interface IframeData {
   /**
+   * Whether to show the collections widget in the UI.
+   */
+  showCollectionsWidget?: boolean;
+  /**
    * Whether to show the color picker in the UI.
    */
   showColorPicker?: boolean;

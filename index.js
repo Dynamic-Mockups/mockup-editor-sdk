@@ -1,5 +1,6 @@
 /**
  * @typedef {Object} IframeData
+ * @property {boolean} [showCollectionsWidget] - Whether to show collections widget.
  * @property {boolean} [showColorPicker] - Whether to include a color picker.
  * @property {boolean} [showColorPresets] - Whether to include color presets.
  * @property {boolean} [enableDesignFileUpload] - Whether to allow design file uploads.
@@ -67,6 +68,13 @@ export const initDynamicMockupsIframe = ({
 
   const sendMessage = () => {
     if (iframe.contentWindow) {
+      console.log("window.location: ", window.location);
+      console.log("window.location.host: ", window.location.host);
+
+      console.log("postMessage data: ", {
+        ...data,
+        locationHost: window.location.host,
+      });
       iframe.contentWindow.postMessage(
         { ...data, locationHost: window.location.host },
         iframe.src
