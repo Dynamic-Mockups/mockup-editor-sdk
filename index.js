@@ -66,17 +66,25 @@ export const initDynamicMockupsIframe = ({
     iframe.src = iframe.src;
   }
 
+  const getHostFromURL = (url) => {
+    try {
+      const parsedUrl = new URL(url);
+      return parsedUrl.host;
+    } catch (error) {
+      console.error("Invalid Host URL:", error.message);
+      return "";
+    }
+  };
+
   const sendMessage = () => {
     if (iframe.contentWindow) {
-      console.log("window.location: ", window.location);
-      console.log("window.location.host: ", window.location.host);
-
-      console.log("postMessage data: ", {
-        ...data,
-        locationHost: window.location.host,
-      });
       iframe.contentWindow.postMessage(
-        { ...data, locationHost: window.location.host },
+        {
+          ...data,
+          locationHost:
+            window.location.host ||
+            getHostFromURL(window.location.ancestorOrigins?.[0]),
+        },
         iframe.src
       );
     }
