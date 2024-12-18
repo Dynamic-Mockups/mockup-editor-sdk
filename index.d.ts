@@ -27,6 +27,11 @@ export interface IframeData {
   oneColorPerSmartObject?: boolean;
 
   /**
+   * Theme appearance 'dark' or 'light'. If set, it overrides setting set by dashboard config.
+   */
+  themeAppearance?: "dark" | "light";
+
+  /**
    * Options for exporting mockups.
    */
   mockupExportOptions?: {
