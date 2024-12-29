@@ -32,6 +32,11 @@ export interface IframeData {
   themeAppearance?: "dark" | "light";
 
   /**
+   * Theme 'default' or 'adjustments'
+   */
+  theme?: "default" | "adjustments";
+
+  /**
    * Options for exporting mockups.
    */
   mockupExportOptions?: {

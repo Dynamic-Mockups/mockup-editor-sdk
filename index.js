@@ -7,6 +7,7 @@
  * @property {boolean} [oneColorPerSmartObject] - Whether to use one color per smart object.
  * @property {Object} [mockupExportOptions] - Options for exporting mockups.
  * @property {boolean} [themeAppearance] - Theme appearance 'dark' or 'light'. If set, it overrides setting set by dashboard config.
+ * @property {boolean} [theme] - Theme 'default' or 'adjustments'
  * @property {string} mockupExportOptions.image_format - Format of the exported image (e.g., "webp", "png", "jpg").
  * @property {number} mockupExportOptions.image_size - Size of the exported image.
  * @property {string} [designUrl] - URL of the design.
