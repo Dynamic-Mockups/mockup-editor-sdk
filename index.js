@@ -3,14 +3,13 @@
  * @property {boolean} [showCollectionsWidget] - Whether to show collections widget.
  * @property {boolean} [showColorPicker] - Whether to include a color picker.
  * @property {boolean} [showColorPresets] - Whether to include color presets.
- * @property {boolean} [enableDesignFileUpload] - Whether to allow design file uploads.
  * @property {boolean} [oneColorPerSmartObject] - Whether to use one color per smart object.
  * @property {Object} [mockupExportOptions] - Options for exporting mockups.
  * @property {boolean} [themeAppearance] - Theme appearance 'dark' or 'light'. If set, it overrides setting set by dashboard config.
  * @property {boolean} [theme] - Theme 'default' or 'adjustments'
  * @property {string} mockupExportOptions.image_format - Format of the exported image (e.g., "webp", "png", "jpg").
  * @property {number} mockupExportOptions.image_size - Size of the exported image.
- * @property {string} [designUrl] - URL of the design.
+ * @property {string} [designUrl] - The URL of the design file to be used for every smart object.
  * @property {string} [customFields] - Custom user data. Will be returned alongside callback response.
  * @property {string} xWebsiteKey - A website key for authorization.
  */

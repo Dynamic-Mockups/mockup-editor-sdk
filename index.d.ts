@@ -17,11 +17,6 @@ export interface IframeData {
   showColorPresets?: boolean;
 
   /**
-   * Allows users to upload design files.
-   */
-  enableDesignFileUpload?: boolean;
-
-  /**
    * Restricts the user to one color per smart object.
    */
   oneColorPerSmartObject?: boolean;
@@ -52,7 +47,7 @@ export interface IframeData {
   };
 
   /**
-   * The URL of the design file to load in the iframe.
+   * The URL of the design file to be used for every smart object.
    */
   designUrl?: string;
 

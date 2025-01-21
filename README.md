@@ -13,7 +13,7 @@ https://dynamicmockups.com
 
 ## Documentation
 
-For detailed documentation visit [**`docs.dynamicmockups.com`**](https://docs.dynamicmockups.com/)
+For detailed documentation visit [**`docs.dynamicmockups.com`**](https://docs.dynamicmockups.com/mockup-editor-sdk/embed-editor/)
 
 ## Installation
 
