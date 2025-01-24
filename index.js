@@ -4,6 +4,7 @@
  * @property {boolean} [showColorPicker] - Whether to include a color picker.
  * @property {boolean} [showColorPresets] - Whether to include color presets.
  * @property {boolean} [oneColorPerSmartObject] - Whether to use one color per smart object.
+ * @property {boolean} [enableCollectionExport] - If enabled, exporting a single mockup from a collection will automatically export all mockups in the collection, retaining the position and size of the design from the edited mockup.
  * @property {Object} [mockupExportOptions] - Options for exporting mockups.
  * @property {boolean} [themeAppearance] - Theme appearance 'dark' or 'light'. If set, it overrides setting set by dashboard config.
  * @property {boolean} [theme] - Theme 'default' or 'adjustments'
