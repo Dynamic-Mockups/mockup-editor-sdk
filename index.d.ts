@@ -54,7 +54,7 @@ export interface IframeData {
   /**
    * If enabled, exporting a single mockup from a collection will automatically export all mockups in the collection, retaining the position and size of the design from the edited mockup.
    */
-  enableCollectionExport?: string;
+  enableCollectionExport?: boolean;
 
   /**
    * Custom data fields as a JSON string (will be returned as is with callback data).
