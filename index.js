@@ -13,6 +13,10 @@
  * @property {string} [designUrl] - The URL of the design file to be used for every smart object.
  * @property {string} [customFields] - Custom user data. Will be returned alongside callback response.
  * @property {string} xWebsiteKey - A website key for authorization.
+ * @property {boolean} [enableCreatePrintFiles] - Enables the export of print files.
+ * @property {boolean} [enableColorOptions] - Displays color options.
+ * @property {boolean} [enableExportMockups] - Enables the export of mockups.
+ * @property {boolean} [showSmartObjectArea] - Displays smart object boundaries in the mockup editor.
  */
 
 /**
@@ -37,10 +41,11 @@ export const initDynamicMockupsIframe = ({
    * Downloads mockups based on the provided mockup data.
    * @param {Array} mockups - Array of mockup data.
    */
-  const downloadMockups = (mockups) => {
+  const downloadMockups = (mockups, type) => {
     mockups.forEach((item, index) => {
       const imageUrl = item.export_path;
-      const imageLabel = `Variation ${index + 1}`;
+      const imageLabel =
+        type === "mockup" ? `Mockup ${index + 1}` : `Print file ${index + 1}`;
 
       fetch(imageUrl)
         .then((response) => {
@@ -97,9 +102,35 @@ export const initDynamicMockupsIframe = ({
   });
 
   window.addEventListener("message", (event) => {
+    if (event.data.mockupsAndPrintFilesExport) {
+      if (mode === "download") {
+        downloadMockups(
+          event.data.mockupsAndPrintFilesExport.mockupsExport,
+          "mockup"
+        );
+        const printFiles =
+          event.data.mockupsAndPrintFilesExport.printFilesExport.flatMap(
+            (item) => item.print_files
+          );
+        downloadMockups(printFiles, "print-file");
+      } else if (mode === "custom" && typeof callback === "function") {
+        callback(event.data);
+      }
+    }
+
     if (event.data.mockupsExport) {
       if (mode === "download") {
-        downloadMockups(event.data.mockupsExport);
+        downloadMockups(event.data.mockupsExport, "mockup");
+      } else if (mode === "custom" && typeof callback === "function") {
+        callback(event.data);
+      }
+    }
+    if (event.data.printFilesExport) {
+      if (mode === "download") {
+        const printFiles = event.data.printFilesExport.flatMap(
+          (item) => item.print_files
+        );
+        downloadMockups(printFiles, "print-file");
       } else if (mode === "custom" && typeof callback === "function") {
         callback(event.data);
       }

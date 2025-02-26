@@ -65,6 +65,26 @@ export interface IframeData {
    * A unique key to identify the website making the request.
    */
   "x-website-key": string;
+
+  /**
+   * Enables the export of print files.
+   */
+  enableCreatePrintFiles?: boolean;
+
+  /**
+   * Displays color options.
+   */
+  enableColorOptions?: boolean;
+
+  /**
+   * Enables the export of mockups.
+   */
+  enableExportMockups?: boolean;
+
+  /**
+   * Displays smart object boundaries in the mockup editor.
+   */
+  showSmartObjectArea?: boolean;
 }
 
 /**
@@ -74,17 +94,72 @@ export interface IframeResponse {
   /**
    * Array of mockup export data.
    */
-  mockupsExport: {
+  mockupsExport?: {
     /**
      * Label for the exported mockup.
      */
-    export_label: string;
+    export_label: string | null;
 
     /**
      * Path or URL to the exported mockup file.
      */
     export_path: string;
   }[];
+
+  printFilesExport?: {
+    /**
+     * Label for the exported mockup.
+     */
+    export_label: string | null;
+    print_files: {
+      /**
+       * Path or URL to the exported print file.
+       */
+      export_path: string;
+      /**
+       *  Smart object UUID of print file.
+       */
+      smart_object_uuid: string;
+      /**
+       *  Smart object name of print file.
+       */
+      smart_object_name: string;
+    }[];
+  };
+
+  mockupsAndPrintFilesExport?: {
+    mockupsExport: {
+      /**
+       * Label for the exported mockup.
+       */
+      export_label: string | null;
+
+      /**
+       * Path or URL to the exported mockup file.
+       */
+      export_path: string;
+    }[];
+    printFilesExport: {
+      /**
+       * Label for the exported mockup.
+       */
+      export_label: string | null;
+      print_files: {
+        /**
+         * Path or URL to the exported print file.
+         */
+        export_path: string;
+        /**
+         *  Smart object UUID of print file.
+         */
+        smart_object_uuid: string;
+        /**
+         *  Smart object name of print file.
+         */
+        smart_object_name: string;
+      }[];
+    };
+  };
 
   /**
    * Custom data fields as a string (optional).
