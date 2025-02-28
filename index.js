@@ -57,7 +57,8 @@ export const initDynamicMockupsIframe = ({
         .then((blob) => {
           const link = document.createElement("a");
           link.href = window.URL.createObjectURL(blob);
-          link.download = imageLabel + ".webp";
+          link.download =
+            imageLabel + "." + imageUrl.split(".").pop().toLowerCase();
           link.click();
           window.URL.revokeObjectURL(link.href);
         })
