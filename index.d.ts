@@ -85,6 +85,11 @@ export interface IframeData {
    * Displays smart object boundaries in the mockup editor.
    */
   showSmartObjectArea?: boolean;
+
+  /**
+   * Export Mockups button text.
+   */
+  exportMockupsButtonText?: string;
 }
 
 /**
