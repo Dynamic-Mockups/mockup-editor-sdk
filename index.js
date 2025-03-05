@@ -99,11 +99,15 @@ export const initDynamicMockupsIframe = ({
     }
   };
 
-  iframe.addEventListener("load", () => {
-    sendMessage();
-  });
+  // iframe.addEventListener("load", () => {
+  //   sendMessage();
+  // });
 
   window.addEventListener("message", (event) => {
+    if (event.data === "dmIframeReady") {
+      sendMessage();
+    }
+
     if (event.data.mockupsAndPrintFilesExport) {
       if (mode === "download") {
         downloadMockups(
