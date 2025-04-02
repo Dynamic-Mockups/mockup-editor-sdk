@@ -85,12 +85,25 @@ export const initDynamicMockupsIframe = ({
     }
   };
 
+  const getMainDomain = (url) => {
+    try {
+      const hostname = new URL(url).hostname;
+      const parts = hostname.split(".");
+
+      return parts.slice(-2).join(".");
+    } catch (error) {
+      console.error("Invalid Main Domain:", error.message);
+      return "";
+    }
+  };
+
   const sendMessage = () => {
     if (iframe.contentWindow) {
       iframe.contentWindow.postMessage(
         {
           ...data,
           locationHost:
+            getMainDomain(window.location.origin) ||
             window.location.host ||
             getHostFromURL(window.location.ancestorOrigins?.[0]),
         },
@@ -98,10 +111,6 @@ export const initDynamicMockupsIframe = ({
       );
     }
   };
-
-  // iframe.addEventListener("load", () => {
-  //   sendMessage();
-  // });
 
   window.addEventListener("message", (event) => {
     if (event.data === "dmIframeReady") {
