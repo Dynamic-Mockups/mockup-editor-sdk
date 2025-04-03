@@ -10,6 +10,7 @@
  * @property {boolean} [theme] - Theme 'default' or 'adjustments'
  * @property {string} mockupExportOptions.image_format - Format of the exported image (e.g., "webp", "png", "jpg").
  * @property {number} mockupExportOptions.image_size - Size of the exported image.
+ * @property {number} mockupExportOptions.mode - Rendered image URL type "download" or "view". The default is "download."
  * @property {string} [designUrl] - The URL of the design file to be used for every smart object.
  * @property {string} [customFields] - Custom user data. Will be returned alongside callback response.
  * @property {string} xWebsiteKey - A website key for authorization.

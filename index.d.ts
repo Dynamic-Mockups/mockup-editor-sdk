@@ -38,12 +38,17 @@ export interface IframeData {
     /**
      * The format of the exported image (e.g., "webp", "png" or "jpg").
      */
-    image_format: "webp" | "png" | "jpg";
+    image_format?: "webp" | "png" | "jpg";
 
     /**
      * The size of the exported image in pixels.
      */
-    image_size: number;
+    image_size?: number;
+
+    /**
+     * Rendered image URL type "download" or "view". The default is "download."
+     */
+    mode?: "download" | "view";
   };
 
   /**
