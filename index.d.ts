@@ -95,6 +95,11 @@ export interface IframeData {
    * Export Mockups button text.
    */
   exportMockupsButtonText?: string;
+
+  /**
+   * Flat list of individual hex color strings. These colors appear in the colors popup and can be selected by the user.
+   */
+  colors?: string[];
 }
 
 /**

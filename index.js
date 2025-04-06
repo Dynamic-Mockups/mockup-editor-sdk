@@ -19,6 +19,7 @@
  * @property {boolean} [enableExportMockups] - Enables the export of mockups.
  * @property {boolean} [showSmartObjectArea] - Displays smart object boundaries in the mockup editor.
  * @property {string} [exportMockupsButtonText] - Export Mockups button text.
+ * @property {string[]} [colors] - Flat list of individual hex color strings.
  */
 
 /**
