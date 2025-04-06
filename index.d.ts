@@ -97,9 +97,15 @@ export interface IframeData {
   exportMockupsButtonText?: string;
 
   /**
-   * Flat list of individual hex color strings. These colors appear in the colors popup and can be selected by the user.
+   * List of color presets, each with optional name and an array of hex colors. These presets appear in the colors popup and can be selected by the user.
    */
-  colors?: string[];
+  colorPresets?: {
+    name?: string;
+    colors: {
+      hex: string;
+      name?: string;
+    }[];
+  }[];
 }
 
 /**
