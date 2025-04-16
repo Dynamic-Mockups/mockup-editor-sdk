@@ -101,6 +101,7 @@ export interface IframeData {
    */
   colorPresets?: {
     name?: string;
+    autoApplyColors?: boolean;
     colors: {
       hex: string;
       name?: string;

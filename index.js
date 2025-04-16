@@ -19,7 +19,7 @@
  * @property {boolean} [enableExportMockups] - Enables the export of mockups.
  * @property {boolean} [showSmartObjectArea] - Displays smart object boundaries in the mockup editor.
  * @property {string} [exportMockupsButtonText] - Export Mockups button text.
- * @property {Array<{ name?: string, colors: Array<{ hex: string, name?: string }> }>} [colorPresets] - List of color presets, each with optional name and an array of hex colors.
+ * @property {Array<{ name?: string, autoApplyColors?:boolean, colors: Array<{ hex: string, name?: string }> }>} [colorPresets] - List of color presets, each with optional name and an array of hex colors.
  */
 
 /**
