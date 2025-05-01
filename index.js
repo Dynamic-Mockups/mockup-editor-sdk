@@ -119,6 +119,36 @@ export const initDynamicMockupsIframe = ({
       sendMessage();
     }
 
+    if (event.data?.type === "COPY_TO_CLIPBOARD") {
+      const dataUrl = event.data.dataUrl;
+      const img = new Image();
+
+      img.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+
+        canvas.toBlob(function (blob) {
+          if (navigator.clipboard && navigator.clipboard.write) {
+            const item = new ClipboardItem({
+              "image/png": blob,
+            });
+
+            navigator.clipboard.write([item]).catch((error) => {
+              console.error("Failed to copy image to clipboard:", error);
+            });
+          } else {
+            console.error("Clipboard API not supported in this browser");
+          }
+        }, "image/png");
+      };
+
+      img.src = dataUrl;
+    }
+
     if (event.data.mockupsAndPrintFilesExport) {
       if (mode === "download") {
         downloadMockups(
