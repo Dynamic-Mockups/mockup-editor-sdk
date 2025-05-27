@@ -107,6 +107,11 @@ export interface IframeData {
       name?: string;
     }[];
   }[];
+
+  /**
+   * Displays artwork transform controls, like width, height, rotate inputs.
+   */
+  showTransformControls?: boolean;
 }
 
 /**
