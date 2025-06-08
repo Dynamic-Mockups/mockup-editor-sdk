@@ -1,3 +1,7 @@
+<p align="left">
+  <a href="https://docs.dynamicmockups.com/"><img src="https://img.shields.io/static/v1?message=Documented%20on%20GitBook&logo=gitbook&logoColor=ffffff&label=%20&labelColor=5c5c5c&color=3F89A1"></a>
+</p>
+
 # Mockup Editor SDK by Dynamic Mockups
 
 This package provides additional functions and utilities to seamlessly integrate iFrame with the Editor application developed by the Dynamic Mockups team. It simplifies embedding the Editor iFrame into your project, enhancing functionality and providing smooth interactions between your site and the Editor platform.
