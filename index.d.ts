@@ -112,6 +112,11 @@ export interface IframeData {
    * Displays artwork transform controls, like width, height, rotate inputs.
    */
   showTransformControls?: boolean;
+
+  /**
+   * Use array of template UUID's
+   */
+  templates?: string[];
 }
 
 /**

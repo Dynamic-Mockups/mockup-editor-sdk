@@ -21,6 +21,7 @@
  * @property {string} [exportMockupsButtonText] - Export Mockups button text.
  * @property {Array<{ name?: string, autoApplyColors?:boolean, colors: Array<{ hex: string, name?: string }> }>} [colorPresets] - List of color presets, each with optional name and an array of hex colors.
  * @property {boolean} [showTransformControls] - Displays artwork transform controls, like width, height, rotate inputs.
+ * @property {boolean} [templates] - Use array of template UUID's
  */
 
 /**
