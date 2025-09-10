@@ -117,6 +117,21 @@ export interface IframeData {
    * Use array of template UUID's
    */
   templates?: string[];
+
+  /**
+   * Whether to show artwork library
+   */
+  showArtworkLibrary?: boolean;
+
+  /**
+   * Whether to show "Upload your artwork" button
+   */
+  showUploadYourArtwork?: boolean;
+
+  /**
+   * Whether to show artwork editor
+   */
+  showArtworkEditor?: boolean;
 }
 
 /**

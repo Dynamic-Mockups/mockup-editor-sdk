@@ -22,7 +22,10 @@
  * @property {Array<{ name?: string, autoApplyColors?:boolean, colors: Array<{ hex: string, name?: string }> }>} [colorPresets] - List of color presets, each with optional name and an array of hex colors.
  * @property {boolean} [showTransformControls] - Displays artwork transform controls, like width, height, rotate inputs.
  * @property {boolean} [templates] - Use array of template UUID's
- */
+ * @property {boolean} [showArtworkLibrary] - Whether to show artwork library.
+ * @property {boolean} [showUploadYourArtwork] - Whether to "Upload your artwork" button.
+ * @property {boolean} [showArtworkEditor] - Whether to show artwork editor.
+ *
 
 /**
  * @typedef {Object} InitDynamicMockupsIframeParams
