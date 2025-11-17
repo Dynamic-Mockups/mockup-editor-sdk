@@ -132,6 +132,21 @@ export interface IframeData {
    * Whether to show artwork editor
    */
   showArtworkEditor?: boolean;
+
+  /**
+   * Sets editor type to classic or mockanything. Default is classic.
+   */
+  editorType?: "classic" | "mockanything";
+
+  /**
+   * Options for mockanything editor type.
+   */
+  mockanything?: {
+    /**
+     * Name of event listener used for parent-child iframe communication.
+     */
+    eventListenerName: string;
+  };
 }
 
 /**

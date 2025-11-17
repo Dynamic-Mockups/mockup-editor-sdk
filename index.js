@@ -23,9 +23,11 @@
  * @property {boolean} [showTransformControls] - Displays artwork transform controls, like width, height, rotate inputs.
  * @property {boolean} [templates] - Use array of template UUID's
  * @property {boolean} [showArtworkLibrary] - Whether to show artwork library.
- * @property {boolean} [showUploadYourArtwork] - Whether to "Upload your artwork" button.
+ * @property {boolean} [showUploadYourArtwork] - Whether to show "Upload your artwork" button.
  * @property {boolean} [showArtworkEditor] - Whether to show artwork editor.
- *
+ * @property {boolean} [editorType] - Sets editor type to classic or mockanything. Default is classic.
+ * @property {Object} [mockanything] - Options for mockanything editor type.
+ * @property {string} mockanything.eventListenerName - Name of event listener used for parent-child iframe communication.
 
 /**
  * @typedef {Object} InitDynamicMockupsIframeParams
