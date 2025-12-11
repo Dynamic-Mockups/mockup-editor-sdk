@@ -28,6 +28,8 @@
  * @property {boolean} [editorType] - Sets editor type to classic or mockanything. Default is classic.
  * @property {Object} [mockanything] - Options for mockanything editor type.
  * @property {string} mockanything.eventListenerName - Name of event listener used for parent-child iframe communication.
+ * @property {string} mockanything.customModelImage - Custom image url provided, instead of api generated approach. Used for custom iframe implementation via parameters.
+ * @property {string} mockanything.prompt - Custom prompt provided, based on which an image will be generated.
 
 /**
  * @typedef {Object} InitDynamicMockupsIframeParams

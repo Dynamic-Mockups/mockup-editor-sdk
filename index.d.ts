@@ -146,6 +146,14 @@ export interface IframeData {
      * Name of event listener used for parent-child iframe communication.
      */
     eventListenerName: string;
+    /**
+     * Custom image url provided, instead of api generated approach. Used for custom iframe implementation via parameters.
+     */
+    customModelImage: string;
+    /**
+     * Custom prompt provided, based on which an image will be generated.Custom prompt provided, based on which an image will be generated.
+     */
+    prompt: string;
   };
 }
 
