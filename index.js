@@ -101,6 +101,12 @@ export const initDynamicMockupsIframe = ({
       const hostname = new URL(url).hostname;
       const parts = hostname.split(".");
 
+      // Handle edge cases like localhost, IPs, or single-part domains
+      if (parts.length <= 2) {
+        return hostname;
+      }
+
+      // Return last 2 parts (domain.tld)
       return parts.slice(-2).join(".");
     } catch (error) {
       console.error("Invalid Main Domain:", error.message);
@@ -108,15 +114,41 @@ export const initDynamicMockupsIframe = ({
     }
   };
 
+  const getParentDomain = () => {
+    // 1. Check if we're in an iframe and try ancestorOrigins (Chrome/Safari)
+    if (
+      window.location.ancestorOrigins &&
+      window.location.ancestorOrigins.length > 0
+    ) {
+      // Get the topmost ancestor origin (the actual parent page)
+      const topOrigin =
+        window.location.ancestorOrigins[
+          window.location.ancestorOrigins.length - 1
+        ];
+      return getMainDomain(topOrigin);
+    }
+
+    // 2. Try document.referrer if available (works cross-origin)
+    if (document.referrer && document.referrer !== window.location.href) {
+      const referrerDomain = getMainDomain(document.referrer);
+      const currentDomain = getMainDomain(window.location.origin);
+
+      // If referrer domain is different, it's likely the parent
+      if (referrerDomain && referrerDomain !== currentDomain) {
+        return referrerDomain;
+      }
+    }
+
+    // 3. Fallback to current location
+    return getMainDomain(window.location.origin) || window.location.host;
+  };
+
   const sendMessage = () => {
     if (iframe.contentWindow) {
       iframe.contentWindow.postMessage(
         {
           ...data,
-          locationHost:
-            getMainDomain(window.location.origin) ||
-            window.location.host ||
-            getHostFromURL(window.location.ancestorOrigins?.[0]),
+          locationHost: getParentDomain(),
         },
         iframe.src
       );
