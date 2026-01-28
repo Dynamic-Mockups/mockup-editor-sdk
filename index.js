@@ -1,4 +1,26 @@
 /**
+ * @typedef {Object} CustomArtworkItem
+ * @property {string} name - Name of the artwork item
+ * @property {string} url - URL of the artwork
+ * @property {string} [thumbnail] - Optional thumbnail URL
+ * @property {string} [id] - Optional ID
+ */
+
+/**
+ * @typedef {Object} LabelConfig
+ * @property {string} [label] - Label text
+ * @property {string} [tooltip] - Tooltip text
+ * @property {string} [icon] - HTML string for icon
+ */
+
+/**
+ * @typedef {Object} CustomLabelsConfig
+ * @property {LabelConfig} [artwork] - Artwork label configuration
+ * @property {LabelConfig} [colorOptions] - Color options label configuration
+ * @property {LabelConfig} [artworkLibrary] - Artwork library label configuration
+ */
+
+/**
  * @typedef {Object} IframeData
  * @property {boolean} [showCollectionsWidget] - Whether to show collections widget.
  * @property {boolean} [showColorPicker] - Whether to include a color picker.
@@ -24,6 +46,8 @@
  * @property {boolean} [templates] - Use array of template UUID's
  * @property {boolean} [showArtworkLibrary] - Whether to show artwork library.
  * @property {boolean} [showUploadYourArtwork] - Whether to show "Upload your artwork" button.
+ * @property {Array<CustomArtworkItem>} [artworkLibrary] - Custom artwork items for the artwork library.
+ * @property {CustomLabelsConfig} [customLabels] - Custom label configuration for UI text customization.
  * @property {boolean} [showArtworkEditor] - Whether to show artwork editor.
  * @property {boolean} [editorType] - Sets editor type to classic or mockanything. Default is classic.
  * @property {Object} [mockanything] - Options for mockanything editor type.
@@ -150,7 +174,7 @@ export const initDynamicMockupsIframe = ({
           ...data,
           locationHost: getParentDomain(),
         },
-        iframe.src
+        iframe.src,
       );
     }
   };
@@ -194,11 +218,11 @@ export const initDynamicMockupsIframe = ({
       if (mode === "download") {
         downloadMockups(
           event.data.mockupsAndPrintFilesExport.mockupsExport,
-          "mockup"
+          "mockup",
         );
         const printFiles =
           event.data.mockupsAndPrintFilesExport.printFilesExport.flatMap(
-            (item) => item.print_files
+            (item) => item.print_files,
           );
         downloadMockups(printFiles, "print-file");
       } else if (mode === "custom" && typeof callback === "function") {
@@ -216,7 +240,7 @@ export const initDynamicMockupsIframe = ({
     if (event.data.printFilesExport) {
       if (mode === "download") {
         const printFiles = event.data.printFilesExport.flatMap(
-          (item) => item.print_files
+          (item) => item.print_files,
         );
         downloadMockups(printFiles, "print-file");
       } else if (mode === "custom" && typeof callback === "function") {

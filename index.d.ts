@@ -1,4 +1,32 @@
 /**
+ * Custom artwork item interface for artworkLibrary prop
+ */
+export interface CustomArtworkItem {
+  name: string;
+  url: string;
+  thumbnail?: string;
+  id?: string;
+}
+
+/**
+ * Label configuration for UI text customization
+ */
+export interface LabelConfig {
+  label?: string;
+  tooltip?: string;
+  icon?: string; // HTML string for icon
+}
+
+/**
+ * Label configuration for customLabels prop
+ */
+export interface CustomLabelsConfig {
+  artwork?: LabelConfig;
+  colorOptions?: LabelConfig;
+  artworkLibrary?: LabelConfig;
+}
+
+/**
  * Interface representing data to send to the iframe.
  */
 export interface IframeData {
@@ -122,6 +150,16 @@ export interface IframeData {
    * Whether to show artwork library
    */
   showArtworkLibrary?: boolean;
+
+  /**
+   * Custom artwork items for the artwork library
+   */
+  artworkLibrary?: CustomArtworkItem[];
+
+  /**
+   * Custom label configuration for UI text customization
+   */
+  customLabels?: CustomLabelsConfig;
 
   /**
    * Whether to show "Upload your artwork" button
