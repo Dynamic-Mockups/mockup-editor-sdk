@@ -27,6 +27,90 @@ export interface CustomLabelsConfig {
 }
 
 /**
+ * Color option for a Dynamic AI Shop product
+ */
+export interface DynamicAiShopProductColor {
+  /** Color display name */
+  name: string;
+  /** Hex color value */
+  hex: string;
+}
+
+/**
+ * Product configuration for Dynamic AI Shop
+ */
+export interface DynamicAiShopProduct {
+  /** Unique product identifier */
+  id: string;
+  /** Product display name */
+  name: string;
+  /** Optional product description */
+  description?: string;
+  /** Product price */
+  price: number;
+  /** Optional discounted price (shows strikethrough on original) */
+  discountedPrice?: number;
+  /** Optional available colors */
+  colors?: DynamicAiShopProductColor[];
+  /** Optional available sizes */
+  sizes?: string[];
+  /** Dynamic Mockups mockup UUID for rendering */
+  mockupUUID: string;
+  /** Smart object UUID within the mockup template */
+  smartObjectUUID: string;
+  /** Optional preview image URL */
+  previewImageUrl?: string;
+}
+
+/**
+ * Configuration for Dynamic AI Shop editor type
+ */
+export interface DynamicAiShopConfig {
+  /** Array of products to display in the shop */
+  products: DynamicAiShopProduct[];
+}
+
+/**
+ * Rendered product data returned in the add-to-cart callback
+ */
+export interface DynamicAiShopRenderedProduct {
+  /** Product identifier */
+  productId: string;
+  /** Product display name */
+  name: string;
+  /** Product description */
+  description?: string;
+  /** Product price */
+  price: number;
+  /** Discounted price if applicable */
+  discountedPrice?: number;
+  /** Available colors */
+  colors?: DynamicAiShopProductColor[];
+  /** Available sizes */
+  sizes?: string[];
+  /** Rendered product image URL */
+  imageUrl: string;
+}
+
+/**
+ * Add-to-cart callback response from Dynamic AI Shop
+ */
+export interface DynamicAiShopAddToCartResponse {
+  /** Event type identifier */
+  type: "DYNAMIC_AI_SHOP_ADD_TO_CART";
+  /** The product being added */
+  product: DynamicAiShopRenderedProduct;
+  /** Selected color, or null if none */
+  selectedColor: DynamicAiShopProductColor | null;
+  /** Selected size, or null if none */
+  selectedSize: string | null;
+  /** Quantity selected */
+  quantity: number;
+  /** URL of the AI-generated artwork */
+  aiGeneratedArtworkUrl: string;
+}
+
+/**
  * Interface representing data to send to the iframe.
  */
 export interface IframeData {
@@ -172,9 +256,9 @@ export interface IframeData {
   showArtworkEditor?: boolean;
 
   /**
-   * Sets editor type to classic or mockanything. Default is classic.
+   * Sets editor type. Default is classic.
    */
-  editorType?: "classic" | "mockanything";
+  editorType?: "classic" | "mockanything" | "dynamicaishop";
 
   /**
    * Options for mockanything editor type.
@@ -189,10 +273,15 @@ export interface IframeData {
      */
     customModelImage: string;
     /**
-     * Custom prompt provided, based on which an image will be generated.Custom prompt provided, based on which an image will be generated.
+     * Custom prompt provided, based on which an image will be generated.
      */
     prompt: string;
   };
+
+  /**
+   * Options for dynamicaishop editor type.
+   */
+  dynamicaishop?: DynamicAiShopConfig;
 }
 
 /**
@@ -356,7 +445,9 @@ export interface InitDynamicMockupsIframeParams {
    *
    * @param response - The response data sent back from the iframe.
    */
-  callback?: (response: IframeResponse) => void;
+  callback?: (
+    response: IframeResponse | DynamicAiShopAddToCartResponse,
+  ) => void;
 }
 
 /**

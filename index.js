@@ -21,6 +21,31 @@
  */
 
 /**
+ * @typedef {Object} DynamicAiShopProductColor
+ * @property {string} name - Color display name
+ * @property {string} hex - Hex color value
+ */
+
+/**
+ * @typedef {Object} DynamicAiShopProduct
+ * @property {string} id - Unique product identifier
+ * @property {string} name - Product display name
+ * @property {string} [description] - Optional product description
+ * @property {number} price - Product price
+ * @property {number} [discountedPrice] - Optional discounted price (shows strikethrough on original)
+ * @property {Array<DynamicAiShopProductColor>} [colors] - Optional available colors
+ * @property {Array<string>} [sizes] - Optional available sizes
+ * @property {string} mockupUUID - Dynamic Mockups mockup UUID for rendering
+ * @property {string} smartObjectUUID - Smart object UUID within the mockup template
+ * @property {string} [previewImageUrl] - Optional preview image URL
+ */
+
+/**
+ * @typedef {Object} DynamicAiShopConfig
+ * @property {Array<DynamicAiShopProduct>} products - Array of products to display in the shop
+ */
+
+/**
  * @typedef {Object} IframeData
  * @property {boolean} [showCollectionsWidget] - Whether to show collections widget.
  * @property {boolean} [showColorPicker] - Whether to include a color picker.
@@ -49,11 +74,12 @@
  * @property {Array<CustomArtworkItem>} [artworkLibrary] - Custom artwork items for the artwork library.
  * @property {CustomLabelsConfig} [customLabels] - Custom label configuration for UI text customization.
  * @property {boolean} [showArtworkEditor] - Whether to show artwork editor.
- * @property {boolean} [editorType] - Sets editor type to classic or mockanything. Default is classic.
+ * @property {"classic" | "mockanything" | "dynamicaishop"} [editorType] - Sets editor type. Default is classic.
  * @property {Object} [mockanything] - Options for mockanything editor type.
  * @property {string} mockanything.eventListenerName - Name of event listener used for parent-child iframe communication.
  * @property {string} mockanything.customModelImage - Custom image url provided, instead of api generated approach. Used for custom iframe implementation via parameters.
  * @property {string} mockanything.prompt - Custom prompt provided, based on which an image will be generated.
+ * @property {DynamicAiShopConfig} [dynamicaishop] - Options for dynamicaishop editor type.
 
 /**
  * @typedef {Object} InitDynamicMockupsIframeParams
@@ -244,6 +270,12 @@ export const initDynamicMockupsIframe = ({
         );
         downloadMockups(printFiles, "print-file");
       } else if (mode === "custom" && typeof callback === "function") {
+        callback(event.data);
+      }
+    }
+
+    if (event.data?.type === "DYNAMIC_AI_SHOP_ADD_TO_CART") {
+      if (mode === "custom" && typeof callback === "function") {
         callback(event.data);
       }
     }
